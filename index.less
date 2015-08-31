@@ -48,6 +48,7 @@ atom-text-editor, :host
 
 /** SYNTAX HIGHLIGHTING **/
 .comment                    { color: @syntax-color-comment; }
+.comment.section            { font-weight: bold; }
 .constant                   { color: @syntax-color-constant; }
 
 .entity
@@ -94,10 +95,8 @@ atom-text-editor, :host
 {
     &.name.function         { color: @syntax-color-function; }
     &.name.class,
-    &.name.type.class
-    {
-        color:              @syntax-color-class;
-    }
+    &.name.type.class       { color: @syntax-color-class; }
+    &.other.attribute-name  { color: @syntax-color-attribute; }
 }
 
 .meta
