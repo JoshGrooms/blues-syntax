@@ -61,7 +61,7 @@ atom-text-editor, :host
 .storage
 {
     color:                  @syntax-color-keyword;
-    font-weight:            bold;
+    // font-weight:            bold;
     &.operator              { color: @syntax-color-operator; }
     &.other.unit            { color: @syntax-color-constant; }
 }
@@ -69,7 +69,7 @@ atom-text-editor, :host
 .variable
 {
     color:                  @general-text-color;
-    &.parameter.function    { color: @syntaxt-color-parameter; }
+    &.parameter.function    { color: @syntax-color-parameter; }
 }
 
 .invalid.illegal
@@ -155,6 +155,49 @@ atom-text-editor, :host
 }
 
 .none           { color: @syntax-text-color; }
+
+
+/** CUSTOM SYNTAX CATEGORIES **/
+// These are for my custom-written language syntax rules that don't obey the awkard conventions above, which were originally
+// pulled from TextMate packages.
+
+.enclosure
+{
+    color: @syntax-color-operator;
+    &.string { color: @syntax-color-string; }
+}
+.literal
+{
+    color: @syntax-color-constant;
+    &.string { color: @syntax-color-string; }
+}
+
+.preprocessor
+{
+    color: @very-light-silver;
+
+    &.define.name   { color: @syntax-text-color; }
+    &.include.file  { color: @syntax-color-string; }
+}
+
+.operator
+{
+    color: @syntax-color-operator;
+    &.character { color: @syntax-color-operator; }
+    &.word      { color: @syntax-color-keyword; }
+}
+
+.type
+{
+    &.name { color: @syntax-color-class; }
+    &.primitive { color: @syntax-color-keyword; }
+}
+
+.variable.argument
+{
+    color: @syntax-color-parameter;
+}
+
 
 
 .source.gfm .markup {
