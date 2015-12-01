@@ -1,8 +1,4 @@
-/* CHANGELOG
- * Written by Josh Grooms on 20151201
- */
-
-@import "./Standards/Colors/SyntaxColors";
+@import "./styles/syntax-variables";
 
 atom-text-editor, :host
 {
@@ -48,6 +44,33 @@ atom-text-editor, :host
 }
 
 
+
+/** SYNTAX HIGHLIGHTING **/
+.comment                    { color: @syntax-color-comment; }
+.comment.section            { font-weight: bold; }
+.constant                   { color: @syntax-color-constant; }
+
+.entity
+{
+    &.name.type             { color: @syntax-color-class; }
+    &.other.inherited-class { color: @syntax-color-class; }
+}
+
+.keyword,
+.storage
+{
+    color:                  @syntax-color-keyword;
+    // font-weight:            bold;
+    &.operator              { color: @syntax-color-operator; }
+    &.other.unit            { color: @syntax-color-constant; }
+}
+
+.variable
+{
+    color:                  @general-text-color;
+    &.parameter.function    { color: @syntax-color-parameter; }
+}
+
 .invalid.illegal
 {
     background-color:       @red;
@@ -56,19 +79,29 @@ atom-text-editor, :host
 
 .string                     { color: @syntax-color-string; }
 
+.support
+{
+    &.class                 { color: @syntax-color-class; }
+    &.constant              { color: @syntax-color-constant; }
+    &.function,
+    &.function.any-method
+    {
+        color:              @syntax-color-function;
+    }
+}
 
 .entity
 {
     &.name.function         { color: @syntax-color-function; }
     &.name.class,
-    &.name.type.class       { color: @class-color; }
-    &.other.attribute-name  { color: @attribute-color; }
-    &.other.inherited-class { color: @class-color; }
+    &.name.type.class       { color: @syntax-color-class; }
+    &.other.attribute-name  { color: @syntax-color-attribute; }
 }
 
 .meta
 {
     &.class                 { color: @syntax-color-class; }
+    &.preprocessor          { color: @syntax-color-preprocessor; }
     &.require               { color: @blue; }
     &.selector              { color: @purple; }
     &.separator
@@ -127,77 +160,48 @@ atom-text-editor, :host
 // These are for my custom-written language syntax rules that don't obey the awkard conventions above, which were originally
 // pulled from TextMate packages.
 
-.comment
-{
-    color: @comment-color;
-    &.section       { font-weight: bold; }
-}
-
 .enclosure
 {
-    color: @enclosure-color;
-    &.comment       { color: @comment-color; }
-    &.string        { color: @string-color; }
+    color: @syntax-color-operator;
+    &.string { color: @syntax-color-string; }
+}
+.literal
+{
+    color: @syntax-color-constant;
+    &.string { color: @syntax-color-string; }
 }
 
-.function
+.preprocessor
 {
-    color: @function-color;
-    &.method        { color: @method-color; }
-}
+    color: @very-light-silver;
 
-.keyword,
-.storage
-{
-    color: @keyword-color;
-    &.operator      { color: @operator-color; }
-}
-
-.literal,
-.constant
-{
-    color: @literal-color;
-    &.string        { color: @string-color; }
+    &.define.name   { color: @syntax-text-color; }
+    &.include.file  { color: @syntax-color-string; }
 }
 
 .operator
 {
     color: @syntax-color-operator;
-    &.word          { color: @keyword-color; }
+    &.character { color: @syntax-color-operator; }
+    &.word      { color: @syntax-color-keyword; }
 }
 
-.problem,
-.illegal,
-.invalid
+.type
 {
-    background-color:   @error-color;
-    color:              @black;
+    &.name { color: @syntax-color-class; }
+    &.primitive { color: @syntax-color-keyword; }
 }
 
-.preprocessor
+.variable.argument
 {
-    color: @preprocessor-color;
-
-    &.define.name   { color: @text-color; }
-    &.include.file  { color: @string-color; }
+    color: @syntax-color-parameter;
 }
 
-.type,
-.entity
-{
-    color: @type-color;
 
-    &.class         { color: @class-color; }
-    &.enumeration   { color: @enumeration-color; }
-    &.primitive     { color: @primitive-color; }
-    &.struct        { color: @struct-color; }
-}
 
-.variable
-{
-    color: @variable-color;
-
-    &.argument      { color: @argument-color; }
-    &.parameter     { color: @argument-color; }
-    &.property      { color: @property-color; }
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+  &.heading {
+    color: @green;
+  }
 }
