@@ -1,15 +1,14 @@
 {
   "name": "blues-syntax",
   "theme": "syntax",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A short description of your syntax theme",
   "keywords": [
     "syntax",
     "theme"
   ],
-  "repository": "https://github.com/atom/blues-syntax",
+  "repository": "https://github.com/JoshGrooms/blues-syntax.git",
   "license": "MIT",
-  "engines": {
-    "atom": ">=0.174.0 <2.0.0"
-  }
+  "engines": { "atom": "*" },
+  "dependencies": { "standards": "https://github.com/JoshGrooms/Standards.git" }
 }
