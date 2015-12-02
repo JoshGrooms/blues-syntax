@@ -1,81 +1,63 @@
-@import "colors";
+/* SYNTAX-VARIABLES - A standardized collection of color values required by the Atom text editor.
+ *
+ *      The color variables that are found within this file are provided in order to prevent breaking any downloaded packages
+ *      that might depend on them (which is permissible, according to the official Atom documentation). These colors are not
+ *      being used anywhere else in this theme, however, and therefore should not be modified when attempting to change the
+ *      syntax highlighting style.
+ */
 
+/* CHANGELOG
+ * Written by Josh Grooms on 20151201
+ */
 
-/** COLOR DEFININTIONS **/
-@light-black:           #191919;
-
-@very-dark-gray:        #252525;
-@dark-gray:             #323232;
-@light-gray:            #646464;
-
-@silver:                #A2A2A2;
-@semi-light-silver:     #AFAFAF;    // [175, 175, 175]
-@light-silver:          #BBBBBB;
-@very-light-silver:     #C8C8C8;    // [200, 200, 200]
-
-@blue:                  #0000FF;
-@green:                 #00FF00;
-@magenta:               #FF00FF;
-@orchid:                #9632FF;
-@red:                   #FF0000;
-
-@very-light-aqua:       #00C8C8;
-
-@very-dark-cyan:        #00D4D4;
-@dark-cyan:             #00E1E1;
-@semi-dark-cyan:        #00EDED;
-@cyan:                  #00FFFF;
-
-@light-deep-blue:       #3296FF;
-@deep-blue:             #0064FF;
-@vibrant-blue:          #00C8FF;
+@import "../Standards/Colors/SyntaxColors";
 
 
 
 /** SYNTAX COLOR DEFINITIONS **/
 // General colors
-@syntax-text-color:                         @vibrant-blue;
-@syntax-cursor-color:                       @vibrant-blue;
-@syntax-selection-color:                    @silver;
-@syntax-background-color:                   @light-black;
+@syntax-text-color:                         @text-color;
+@syntax-cursor-color:                       @cursor-color;
+@syntax-selection-color:                    @selection-color;
+@syntax-background-color:                   @background-color;
 
 // Guide colors
-@syntax-wrap-guide-color:                   @very-dark-gray;
-@syntax-indent-guide-color:                 @very-dark-gray;
-@syntax-invisible-character-color:          @very-dark-gray;
+@syntax-wrap-guide-color:                   @wrap-color;
+@syntax-indent-guide-color:                 @text-color-unknown;
+@syntax-invisible-character-color:          @text-color-unknown;
 
 // Find & replace markers
 @syntax-result-marker-color:                @deep-blue;
 @syntax-result-marker-color-selected:       white;
 
 // Gutter colors
-@syntax-gutter-text-color:                  @light-silver;
-@syntax-gutter-text-color-folded:           @light-gray;
-@syntax-gutter-text-color-selected:         @deep-blue;
-@syntax-gutter-background-color:            @dark-gray;
-@syntax-gutter-background-color-selected:   @very-dark-gray;
+@syntax-gutter-text-color:                  @line-number-text-color;
+@syntax-gutter-text-color-folded:           @text-color-folded;
+@syntax-gutter-text-color-selected:         @line-number-text-color-selected;
+@syntax-gutter-background-color:            @line-number-background-color;
+@syntax-gutter-background-color-selected:   @line-number-background-color-selected;
 
 // Git diff info (i.e. in the gutter)
-@syntax-color-renamed:                      @blue;
-@syntax-color-added:                        @green;
-@syntax-color-modified:                     @orange;
-@syntax-color-removed:                      @red;
+@syntax-color-renamed:                      @version-renamed;
+@syntax-color-added:                        @version-added;
+@syntax-color-modified:                     @version-modified;
+@syntax-color-removed:                      @version-removed;
 
 // For language entity colors
-@syntax-color-attribute:                    #C6C5FE;
-@syntax-color-class:                        @very-light-aqua;
-@syntax-color-comment:                      @light-gray;
-@syntax-color-constant:                     @magenta;
-@syntax-color-function:                     @syntax-text-color;
-@syntax-color-import:                       @syntax-color-keyword;
-@syntax-color-keyword:                      @light-deep-blue;
-@syntax-color-method:                       @syntax-color-function;
-@syntax-color-operator:                     @green;
-@syntax-color-preprocessor:                 @very-light-silver;
-@syntax-color-property:                     @syntax-text-color;
-@syntax-color-parameter:                    @silver;
-@syntax-color-snippet:                      @syntax-color-constant;
-@syntax-color-string:                       @orchid;
-@syntax-color-tag:                          #96CBFE;
-@syntax-color-value:                        #F9EE98;
-@syntax-color-variable:                     #C6C5FE;
+@syntax-color-attribute:                    @attribute-color;
+@syntax-color-class:                        @class-color;
+@syntax-color-comment:                      @comment-color;
+@syntax-color-constant:                     @constant-color;
+@syntax-color-function:                     @function-color;
+@syntax-color-import:                       @keyword-color;
+@syntax-color-keyword:                      @keyword-color;
+@syntax-color-method:                       @method-color;
+@syntax-color-operator:                     @operator-color;
+@syntax-color-preprocessor:                 @preprocessor-color;
+@syntax-color-property:                     @property-color;
+@syntax-color-parameter:                    @argument-color;
+@syntax-color-snippet:                      @text-color;
+@syntax-color-string:                       @string-color;
+@syntax-color-tag:                          @text-color;
+@syntax-color-value:                        @text-color;
+@syntax-color-variable:                     @variable-color;
