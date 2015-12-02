@@ -6,13 +6,13 @@
 
 atom-text-editor, :host
 {
-    background-color:       @syntax-background-color;
-    color:                  @syntax-text-color;
+    background-color:       @background-color;
+    color:                  @text-color;
 
     .gutter
     {
-        background-color:   @syntax-gutter-background-color;
-        color:              @syntax-gutter-text-color;
+        background-color:   @line-number-background-color;
+        color:              @line-number-text-color;
 
         .line-number
         {
@@ -22,111 +22,85 @@ atom-text-editor, :host
             &.cursor-line,
             &.cursor-line-no-selection
             {
-                background-color:   @syntax-gutter-background-color-selected;
-                color:              @syntax-gutter-text-color-selected;
+                background-color:   @line-number-background-color-selected;
+                color:              @line-number-text-color-selected;
                 font-weight:        bold;
             }
 
             &.folded,
-            &:after
-            {
-                color: @syntax-gutter-text-color-folded;
-            }
-
+            &:after     { color: @text-color-folded; }
             .icon-right { padding: 0 0.2em; }
         }
 
     }
 
-    .cursor                 { color: @syntax-cursor-color; }
-    .fold-marker:after      { color: @syntax-gutter-text-color-folded; }
-    .indent-guide           { color: @syntax-indent-guide-color; }
-    .invisible              { color: @syntax-text-color; }
-    .invisible-character    { color: @syntax-invisible-character-color; }
-    .selection .region      { background-color: @syntax-selection-color; }
-    .wrap-guide             { background-color: @syntax-wrap-guide-color; }
+    .selection .region
+    {
+        background-color: @selection-color;
+        color: @text-color-selected;
+    }
+
+    .cursor                 { color: @cursor-color; }
+    .fold-marker:after      { color: @text-color-folded; }
+    .indent-guide           { color: @text-color-unknown; }
+    .invisible              { color: @text-color; }
+    .invisible-character    { color: @text-color-unknown; }
+    .wrap-guide             { background-color: @wrap-color; }
 }
-
-
-.invalid.illegal
-{
-    background-color:       @red;
-    color:                  @syntax-background-color;
-}
-
-.string                     { color: @syntax-color-string; }
-
 
 .entity
 {
-    &.name.function         { color: @syntax-color-function; }
     &.name.class,
     &.name.type.class       { color: @class-color; }
+    &.name.function         { color: @function-color; }
     &.other.attribute-name  { color: @attribute-color; }
     &.other.inherited-class { color: @class-color; }
 }
 
 .meta
 {
-    &.class                 { color: @syntax-color-class; }
+    &.class                 { color: @class-color; }
     &.require               { color: @blue; }
-    &.selector              { color: @purple; }
-    &.separator
-    {
-        background-color: @gray;
-        color: @syntax-text-color;
-    }
+    &.selector              { color: @violet; }
+    &.separator             { background-color: @gray; }
 }
 
 
 .markup
 {
-  &.bold {
-    color: @orange;
-    font-weight: bold;
-  }
+    &.bold
+    {
+        color: @orange;
+        font-weight: bold;
+    }
 
-  &.changed {
-    color: @purple;
-  }
+    &.italic
+    {
+        color: @violet;
+        font-style: italic;
+    }
 
-  &.deleted {
-    color: @red;
-  }
+    &.heading .punctuation.definition.heading
+    {
+        color: @blue;
+    }
 
-  &.italic {
-    color: @purple;
-    font-style: italic;
-  }
-
-  &.heading .punctuation.definition.heading {
-    color: @blue;
-  }
-
-  &.inserted {
-    color: @green;
-  }
-
-  &.list {
-    color: @red;
-  }
-
-  &.quote {
-    color: @orange;
-  }
-
-  &.raw.inline {
-    color: @green;
-  }
+    &.changed       { color: @version-modified; }
+    &.deleted       { color: @version-removed; }
+    &.inserted      { color: @version-added; }
+    &.list          { color: @red; }
+    &.quote         { color: @orange; }
+    &.raw.inline    { color: @green; }
 }
 
-.none           { color: @syntax-text-color; }
+.none               { color: @text-color; }
+.string             { color: @string-color; }
+
 
 
 /** CUSTOM SYNTAX CATEGORIES **/
-// These are for my custom-written language syntax rules that don't obey the awkard conventions above, which were originally
+// These are for my custom-written language syntax rules that don't obey the awkward conventions above, which were originally
 // pulled from TextMate packages.
-
 .comment
 {
     color: @comment-color;
@@ -162,7 +136,7 @@ atom-text-editor, :host
 
 .operator
 {
-    color: @syntax-color-operator;
+    color: @operator-color;
     &.word          { color: @keyword-color; }
 }
 
@@ -182,8 +156,7 @@ atom-text-editor, :host
     &.include.file  { color: @string-color; }
 }
 
-.type,
-.entity
+.type
 {
     color: @type-color;
 
