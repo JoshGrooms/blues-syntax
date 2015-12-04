@@ -2,12 +2,12 @@
  * Written by Josh Grooms on 20151201
  */
 
-@import "./Standards/Colors/SyntaxColors";
+@import "./Standards/Colors/Syntax";
 
 atom-text-editor, :host
 {
     background-color:       @background-color;
-    color:                  @text-color;
+    color:                  @code-color;
 
     .gutter
     {
@@ -16,8 +16,8 @@ atom-text-editor, :host
 
         .line-number
         {
-            background-color: transparent;
-            text-align: center;
+            background-color:   transparent;
+            text-align:         center;
 
             &.cursor-line,
             &.cursor-line-no-selection
@@ -40,11 +40,11 @@ atom-text-editor, :host
         color: @text-color-selected;
     }
 
-    .cursor                 { color: @cursor-color; }
+    .cursor                 { color: @code-color; }
     .fold-marker:after      { color: @text-color-folded; }
-    .indent-guide           { color: @text-color-unknown; }
-    .invisible              { color: @text-color; }
-    .invisible-character    { color: @text-color-unknown; }
+    .indent-guide           { color: @code-color; }
+    .invisible              { color: @code-color; }
+    .invisible-character    { color: @code-color; }
     .wrap-guide             { background-color: @wrap-color; }
 }
 
@@ -85,9 +85,9 @@ atom-text-editor, :host
         color: @blue;
     }
 
-    &.changed       { color: @version-modified; }
-    &.deleted       { color: @version-removed; }
-    &.inserted      { color: @version-added; }
+    &.changed       { color: @text-version-modified; }
+    &.deleted       { color: @text-version-removed; }
+    &.inserted      { color: @text-version-added; }
     &.list          { color: @red; }
     &.quote         { color: @orange; }
     &.raw.inline    { color: @green; }
@@ -152,7 +152,7 @@ atom-text-editor, :host
 {
     color: @preprocessor-color;
 
-    &.define.name   { color: @text-color; }
+    &.define.name   { color: @code-color; }
     &.include.file  { color: @string-color; }
 }
 
