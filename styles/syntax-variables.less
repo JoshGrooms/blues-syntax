@@ -10,7 +10,7 @@
  * Written by Josh Grooms on 20151201
  */
 
-@import "../Standards/Colors/SyntaxColors";
+@import "../Standards/Colors/Syntax";
 
 
 
@@ -23,8 +23,8 @@
 
 // Guide colors
 @syntax-wrap-guide-color:                   @wrap-color;
-@syntax-indent-guide-color:                 @text-color-unknown;
-@syntax-invisible-character-color:          @text-color-unknown;
+@syntax-indent-guide-color:                 @code-color;
+@syntax-invisible-character-color:          @code-color;
 
 // Find & replace markers
 @syntax-result-marker-color:                @deep-blue;
@@ -38,10 +38,10 @@
 @syntax-gutter-background-color-selected:   @line-number-background-color-selected;
 
 // Git diff info (i.e. in the gutter)
-@syntax-color-renamed:                      @version-renamed;
-@syntax-color-added:                        @version-added;
-@syntax-color-modified:                     @version-modified;
-@syntax-color-removed:                      @version-removed;
+@syntax-color-renamed:                      @text-version-renamed;
+@syntax-color-added:                        @text-version-added;
+@syntax-color-modified:                     @text-version-modified;
+@syntax-color-removed:                      @text-version-removed;
 
 // For language entity colors
 @syntax-color-attribute:                    @attribute-color;
