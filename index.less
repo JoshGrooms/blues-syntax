@@ -124,7 +124,8 @@ atom-text-editor, :host
 .storage
 {
     color: @keyword-color;
-    &.operator      { color: @operator-color; }
+    &.operator      { color: @keyword-color; }
+    &.type          { color: @keyword-color; }
 }
 
 .literal,
@@ -161,6 +162,7 @@ atom-text-editor, :host
     color: @type-color;
 
     &.class         { color: @class-color; }
+    &.keyword       { color: @keyword-color; }
     &.enumeration   { color: @enumeration-color; }
     &.primitive     { color: @primitive-color; }
     &.struct        { color: @struct-color; }
