@@ -4,7 +4,7 @@
 
 @import "./Standards/Colors/Syntax";
 
-atom-text-editor, :host
+atom-text-editor
 {
     background-color:       @background-color;
     color:                  @code-color;
@@ -40,139 +40,139 @@ atom-text-editor, :host
         color: @text-color-selected;
     }
 
-    .cursor                 { color: @code-color; }
-    .fold-marker:after      { color: @text-color-folded; }
-    .indent-guide           { color: @code-color; }
-    .invisible              { color: @code-color; }
-    .invisible-character    { color: @code-color; }
-    .wrap-guide             { background-color: @wrap-color; }
+    .cursor                                     { color: @code-color; }
+    .fold-marker:after                          { color: @text-color-folded; }
+    .indent-guide                               { color: @code-color; }
+    .invisible                                  { color: @code-color; }
+    .invisible-character                        { color: @code-color; }
+    .wrap-guide                                 { background-color: @wrap-color; }
 }
 
-.entity
+.syntax--entity
 {
-    &.name.class,
-    &.name.type.class       { color: @class-color; }
-    &.name.function         { color: @function-color; }
-    &.other.attribute-name  { color: @attribute-color; }
-    &.other.inherited-class { color: @class-color; }
+    &.syntax--name.syntax--class,
+    &.syntax--name.syntax--type.syntax--class   { color: @class-color; }
+    &.syntax--name.syntax--function             { color: @function-color; }
+    &.syntax--other.syntax--attribute-name      { color: @attribute-color; }
+    &.syntax--other.syntax--inherited-class     { color: @class-color; }
 }
 
-.meta
+.syntax--meta
 {
-    &.class                 { color: @class-color; }
-    &.require               { color: @blue; }
-    &.selector              { color: @violet; }
-    &.separator             { background-color: @gray; }
+    &.syntax--class                             { color: @class-color; }
+    &.syntax--require                           { color: @blue; }
+    &.syntax--selector                          { color: @violet; }
+    &.syntax--separator                         { background-color: @gray; }
 }
 
 
-.markup
+.syntax--markup
 {
-    &.bold
+    &.syntax--bold
     {
         color: @orange;
         font-weight: bold;
     }
 
-    &.italic
+    &.syntax--italic
     {
         color: @violet;
         font-style: italic;
     }
 
-    &.heading .punctuation.definition.heading
+    &.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading
     {
         color: @blue;
     }
 
-    &.changed       { color: @text-version-modified; }
-    &.deleted       { color: @text-version-removed; }
-    &.inserted      { color: @text-version-added; }
-    &.list          { color: @red; }
-    &.quote         { color: @orange; }
-    &.raw.inline    { color: @green; }
+    &.syntax--changed       { color: @text-version-modified; }
+    &.syntax--deleted       { color: @text-version-removed; }
+    &.syntax--inserted      { color: @text-version-added; }
+    &.syntax--list          { color: @red; }
+    &.syntax--quote         { color: @orange; }
+    &.syntax--raw.syntax--inline    { color: @green; }
 }
 
-.none               { color: @text-color; }
-.string             { color: @string-color; }
+.syntax--none               { color: @text-color; }
+.syntax--string             { color: @string-color; }
 
 
 
 /** CUSTOM SYNTAX CATEGORIES **/
 // These are for my custom-written language syntax rules that don't obey the awkward conventions above, which were originally
 // pulled from TextMate packages.
-.comment
+.syntax--comment
 {
     color: @comment-color;
-    &.section       { font-weight: bold; }
+    &.syntax--section       { font-weight: bold; }
 }
 
 .enclosure
 {
     color: @enclosure-color;
-    &.comment       { color: @comment-color; }
-    &.string        { color: @string-color; }
+    &.syntax--comment       { color: @comment-color; }
+    &.syntax--string        { color: @string-color; }
 }
 
-.function
+.syntax--function
 {
     color: @function-color;
-    &.method        { color: @method-color; }
+    &.syntax--method        { color: @method-color; }
 }
 
-.keyword,
-.storage
+.syntax--keyword,
+.syntax--storage
 {
     color: @keyword-color;
-    &.operator      { color: @keyword-color; }
-    &.type          { color: @keyword-color; }
+    &.syntax--operator      { color: @keyword-color; }
+    &.syntax--type          { color: @keyword-color; }
 }
 
-.literal,
-.constant
+.syntax--literal,
+.syntax--constant
 {
     color: @literal-color;
-    &.string        { color: @string-color; }
+    &.syntax--string        { color: @string-color; }
 }
 
-.operator
+.syntax--operator
 {
     color: @operator-color;
-    &.word          { color: @keyword-color; }
 }
+&.syntax--word          { color: @keyword-color; }
 
-.problem,
-.illegal,
-.invalid
+.syntax--problem,
+.syntax--illegal,
+.syntax--invalid
 {
     background-color:   @error-color;
     color:              @black;
 }
 
-.preprocessor
+.syntax--preprocessor
 {
     color: @preprocessor-color;
 
-    &.define.name   { color: @code-color; }
-    &.include.file  { color: @string-color; }
+    &.syntax--define.syntax--name   { color: @code-color; }
+    &.syntax--include.syntax--file  { color: @string-color; }
 }
 
-.type
+.syntax--type
 {
     color: @type-color;
 
-    &.class         { color: @class-color; }
-    &.keyword       { color: @keyword-color; }
-    &.enumeration   { color: @enumeration-color; }
-    &.primitive     { color: @primitive-color; }
-    &.struct        { color: @struct-color; }
+    &.syntax--class         { color: @class-color; }
+    &.syntax--keyword       { color: @keyword-color; }
+    &.syntax--enumeration   { color: @enumeration-color; }
+    &.syntax--primitive     { color: @primitive-color; }
+    &.syntax--struct        { color: @struct-color; }
 }
 
-.variable
+.syntax--variable
 {
     color: @variable-color;
 
-    &.argument      { color: @argument-color; }
-    &.parameter     { color: @argument-color; }
-    &.property      { color: @property-color; }
+    &.syntax--argument      { color: @argument-color; }
+    &.syntax--parameter     { color: @argument-color; }
+    &.syntax--property      { color: @property-color; }
 }
