@@ -50,17 +50,20 @@ atom-text-editor
 
 .syntax--entity
 {
-    &.syntax--name.syntax--class,
-    &.syntax--name.syntax--type.syntax--class   { color: @class-color; }
-    &.syntax--name.syntax--function             { color: @function-color; }
-    &.syntax--other.syntax--attribute-name      { color: @attribute-color; }
-    &.syntax--other.syntax--inherited-class     { color: @class-color; }
+    &.syntax--class,
+    &.syntax--type.syntax--class                { color: @class-color; }
+    &.syntax--function                          { color: @function-color; }
+    // &.syntax--attribute-name                    { color: @attribute-color; }
+    &.syntax--inherited-class                   { color: @class-color; }
+    &.syntax--mixin                             { color: @function-color; }
 }
 
 .syntax--meta
 {
+    .syntax--brace                              { color: @enclosure-color; }
     &.syntax--class                             { color: @class-color; }
-    &.syntax--require                           { color: @blue; }
+    &.syntax--import,
+    &.syntax--require                           { color: @preprocessor-color; }
     &.syntax--selector                          { color: @violet; }
     &.syntax--separator                         { background-color: @gray; }
 }
@@ -85,16 +88,17 @@ atom-text-editor
         color: @blue;
     }
 
-    &.syntax--changed       { color: @text-version-modified; }
-    &.syntax--deleted       { color: @text-version-removed; }
-    &.syntax--inserted      { color: @text-version-added; }
-    &.syntax--list          { color: @red; }
-    &.syntax--quote         { color: @orange; }
-    &.syntax--raw.syntax--inline    { color: @green; }
+    &.syntax--changed                       { color: @text-version-modified; }
+    &.syntax--deleted                       { color: @text-version-removed; }
+    &.syntax--inserted                      { color: @text-version-added; }
+    &.syntax--list                          { color: @red; }
+    &.syntax--quote                         { color: @orange; }
+    &.syntax--raw.syntax--inline            { color: @green; }
 }
 
-.syntax--none               { color: @text-color; }
-.syntax--string             { color: @string-color; }
+.syntax--none                               { color: @text-color; }
+.syntax--punctuation                        { color: @operator-color; }
+.syntax--string                             { color: @string-color; }
 
 
 
@@ -165,6 +169,7 @@ atom-text-editor
     &.syntax--keyword       { color: @keyword-color; }
     &.syntax--enumeration   { color: @enumeration-color; }
     &.syntax--primitive     { color: @primitive-color; }
+    &.syntax--property-name { color: @argument-color; }
     &.syntax--struct        { color: @struct-color; }
 }
 
